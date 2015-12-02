@@ -7,7 +7,6 @@ const CLASSES  = {
 
 timeline.each((i, block) => {
     if ($(block).offset().top > $(window).scrollTop() + $(window).height() * 0.75) {
-        console.log(i, 'hidden');
         $(block).find('.timeline__image, .timeline__content').addClass(CLASSES['hidden']);
     }
 });
