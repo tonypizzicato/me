@@ -1,0 +1,19 @@
+.m_display_none {
+    display: none;
+}
+
+.m_display_inline {
+    display: inline;
+}
+
+.m_display_inline-block {
+    display: inline-block;
+}
+
+.m_visibility_visible {
+    visibility: visible;
+}
+
+.m_visibility_hidden {
+    visibility: hidden;
+}

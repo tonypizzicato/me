@@ -8,11 +8,15 @@
 
     <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
 
-    <link rel="stylesheet" href="vendor/reset-css/reset.css"/>
-    <link rel="stylesheet" href="css/main.css"/>
+    <!-- build:css style.css -->
+    <link rel="stylesheet" href="node_modules/reset.css/reset.css"/>
+    <link rel="stylesheet" href="src/css/main.css"/>
+    <!-- endbuild -->
 
+    <!-- build:js js/modernizr.js -->
+    <script src="src/js/modernizr-custom.js" type="application/javascript"></script>
+    <!-- endbuild -->
 
-    <script src="js/modernizr-custom.js" type="application/javascript"></script>
 </head>
 <body>
 
@@ -101,7 +105,10 @@
         </div> <!-- timeline__content -->
     </div> <!-- timeline__block -->
 </section> <!-- cd-timeline -->
-<script src="vendor/requirejs/require.js" data-main="js/bootstrap.js" type="application/javascript"></script>
+
+<!-- build:js1(.tmp) js/build.js -->
+<script src="js/app.js" type="application/javascript"></script>
+<!-- endbuild -->
 
 </body>
 </html>
