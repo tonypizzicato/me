@@ -147,21 +147,21 @@ Main components
     text-align: center;
     overflow:   hidden;
     display:    inline-block;
-    margin:     30px auto;
+    margin:     22px auto;
 }
 
 .menu__item {
     float:          left;
-    margin-right:   20px;
-    font-size:      14px;
+    margin-right:   10px;
+    font-size:      11px;
     text-transform: uppercase;
     line-height:    20px;
     transition:     line-height .3s, font-size .3s;
 }
 
 .nav_sticked_yes .menu__item {
-    font-size:   14px;
-    line-height: 20px;
+    font-size:   11px;
+    line-height: 10px;
 }
 
 .menu .menu__item:last-child {
@@ -180,6 +180,15 @@ Main components
 }
 
 @media only screen and (min-width: 1170px) {
+    .menu {
+        margin: 30px auto;
+    }
+
+    .nav_sticked_yes .menu__item {
+        font-size:   14px;
+        line-height: 20px;
+    }
+
     .menu__item {
         margin-right: 44px;
         font-size:    18px;

@@ -35,7 +35,7 @@
 }
 
 .m_row {
-    width:     90%;
+    width:     100%;
     max-width: 1170px;
     margin:    0 auto;
     *zoom:     1
@@ -47,11 +47,24 @@
     clear:   both;
 }
 
+@media only screen and (min-width: 1170px) {
+    .m_row {
+        width: 90%;
+    }
+}
+
 .m_col {
-    padding-left:  .9375em;
-    padding-right: .9375em;
+    padding-left:  .4em;
+    padding-right: .4em;
     width:         100%;
     float:         left
+}
+
+@media only screen and (min-width: 1170px) {
+    .m_row {
+        padding-left:  .9375em;
+        padding-right: .9375em;
+    }
 }
 
 .m_col_1 {

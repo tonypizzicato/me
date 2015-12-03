@@ -12,6 +12,15 @@ var copy         = require('gulp-copy');
 var del          = require('del');
 var seq          = require('gulp-sequence');
 
+var connect = require('gulp-connect');
+
+gulp.task('connect', function () {
+    connect.server({
+        root:       'dist',
+        livereload: true
+    });
+});
+
 gulp.task('clean', function () {
     return del(['.tmp', 'dist']);
 });
@@ -51,6 +60,7 @@ gulp.task('usemin', function () {
 
     return gulp.src('./*.html')
         .pipe(usemin(conf))
+        .pipe(connect.reload())
         .pipe(gulp.dest('dist/'));
 });
 
@@ -59,4 +69,4 @@ gulp.task('watch', function () {
     gulp.watch(['./*.html', 'src/css/*'], ['clean:css', 'usemin']);
 });
 
-gulp.task('default', seq('clean', ['copy:favicon', 'copy:fonts'], 'js', 'usemin', 'watch'));
+gulp.task('default', seq('clean', ['copy:favicon', 'copy:fonts'], 'js', 'usemin', 'connect', 'watch'));
