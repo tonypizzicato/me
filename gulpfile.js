@@ -8,15 +8,28 @@ var autoprefixer = require('gulp-autoprefixer');
 var browserify   = require("browserify");
 var babelify     = require('babelify');
 var source       = require('vinyl-source-stream');
+var copy         = require('gulp-copy');
 var del          = require('del');
 var seq          = require('gulp-sequence');
 
 gulp.task('clean', function () {
     return del(['.tmp', 'dist']);
 });
+
 gulp.task('clean:css', function () {
-    return del(['dist/styles']);
+    return del(['dist/styles/*.css']);
 });
+
+gulp.task('copy:favicon', function () {
+    return gulp.src(['favicon.ico'])
+        .pipe(copy('dist', {prefix: 1}));
+});
+
+gulp.task('copy:fonts', function () {
+    return gulp.src(['fonts/*.{woff,eot,ttf,svg}'])
+        .pipe(copy('dist/styles', {prefix: 1}));
+});
+
 
 gulp.task("js", function () {
     return browserify({entries: './src/js/app.js', debug: true})
@@ -46,5 +59,4 @@ gulp.task('watch', function () {
     gulp.watch(['./*.html', 'src/css/*'], ['clean:css', 'usemin']);
 });
 
-
-gulp.task('default', seq('clean', 'js', 'usemin', 'watch'));
+gulp.task('default', seq('clean', ['copy:favicon', 'copy:fonts'], 'js', 'usemin', 'watch'));

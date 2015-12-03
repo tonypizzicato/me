@@ -14,8 +14,8 @@ html * {
 
 body {
     font-size:        100%;
-    color:            #7f8c97;
-    background-color: #e9f0f5;
+    color:            #555454;
+    background-color: #fff;
     font-family:      "Open Sans", sans-serif;
 }
 
@@ -30,10 +30,20 @@ img {
 
 h1, h2, h3 {
     font-weight: bold;
+    color:       #353535;
 }
 
 ul, ol {
     margin: 10px 0;
+}
+
+p {
+    font-family:    inherit;
+    font-weight:    normal;
+    font-size:      1em;
+    line-height:    1.7;
+    margin-bottom:  1.25rem;
+    text-rendering: optimizeLegibility;
 }
 
 /* --------------------------------
@@ -67,13 +77,6 @@ Main components
     overflow:   hidden;
 }
 
-.header h1 {
-    color:       #ffffff;
-    font-size:   18px;
-    font-size:   1.125em;
-    line-height: 1.3em;
-}
-
 .header h1,
 .header h2,
 .header h3 {
@@ -82,9 +85,23 @@ Main components
     text-transform: uppercase;
 }
 
+.header h1 {
+    color:          #ffffff;
+    font-size:      40px;
+    font-size:      2.5em;
+    letter-spacing: .3em;
+    line-height:    1.3em;
+
+    margin-bottom:  20px;
+    display:        inline-block;
+    border-bottom:  2px solid #fff;
+}
+
 .header h3 {
     font-weight: 100;
     color:       #75CE66;
+    font-size:   20px;
+    font-size:   1.2em;
 }
 
 .header__image {
@@ -103,10 +120,128 @@ Main components
 .header__title {
     position:          relative;
 
-    top:               70%;
+    top:               60%;
     -webkit-transform: translateY(-50%);
     -ms-transform:     translateY(-50%);
     transform:         translateY(-50%);
+}
+
+.nav {
+    position:          relative;
+    top:               0;
+    width:             100%;
+    background:        rgba(255, 255, 255, 0.9);
+    z-index:           99;
+
+    /* blink on scroll hack */
+    -webkit-transform: translate3d(0, 0, 0);
+}
+
+.nav_sticked_yes {
+    position: fixed !important;
+    top:      0;
+}
+
+.menu {
+    list-style: none;
+    text-align: center;
+    overflow:   hidden;
+    display:    inline-block;
+    margin:     30px auto;
+}
+
+.menu__item {
+    float:          left;
+    margin-right:   20px;
+    font-size:      14px;
+    text-transform: uppercase;
+    line-height:    20px;
+    transition:     line-height .3s, font-size .3s;
+}
+
+.nav_sticked_yes .menu__item {
+    font-size:   14px;
+    line-height: 20px;
+}
+
+.menu .menu__item:last-child {
+    margin-right: 0;
+}
+
+.menu__item a {
+    color: #777;
+}
+
+.menu__logo {
+    display:    inline-block;
+    transform:  translateY(6px);
+
+    transition: transform .3s;
+}
+
+@media only screen and (min-width: 1170px) {
+    .menu__item {
+        margin-right: 44px;
+        font-size:    18px;
+        line-height:  50px;
+    }
+
+    .menu__logo {
+        transform: translateY(16px);
+    }
+}
+
+.nav_sticked_yes .menu__logo {
+    transform:        translateY(0px);
+    transition-delay: .2s;
+}
+
+.menu__logo img {
+    width: 80px;
+}
+
+.nav_sticked_yes .menu__logo img {
+    transition:       transform .3s;
+    transition-delay: .1s;
+}
+
+.nav_sticked_yes .menu__logo img {
+
+    transform: scale(.8);
+}
+
+.page-title {
+    margin-bottom: 40px;
+}
+
+.page-title__title {
+    font-weight:    700;
+    color:          #EABE94;
+    text-transform: uppercase;
+}
+
+.page-title__header {
+    font-size: 2.3em;
+}
+
+.page-title__line {
+    display:    inline-block;
+    height:     1px;
+    background: #EABE94;
+    position:   relative;
+    text-align: center;
+    z-index:    1;
+    margin:     33px 0;
+}
+
+.page-title__icon {
+    display:    inline-block;
+    background: #fefefe;
+    padding:    0 20px;
+    font-size:  30px;
+    color:      #EABE94;
+    position:   relative;
+    bottom:     15px;
 }
 
 @media only screen and (min-width: 1170px) {
@@ -115,9 +250,73 @@ Main components
     }
 
     .header h1 {
-        font-size: 38px;
-        font-size: 2.5em;
+        font-size:      56px;
+        font-size:      3.5em;
+        letter-spacing: .4em;
     }
+}
+
+.skills__logo {
+    position:            relative;
+    display:             inline-block;
+    margin-bottom:       30px;
+    width:               120px;
+    height:              120px;
+    border-radius:       50%;
+    background:          #EABE94;
+
+    background-position: center center;
+    background-repeat:   no-repeat;
+    background-size:     60%;
+
+    animation-duration:  .7s;
+}
+
+.skills__item_frontend .skills__logo {
+    background-image: url("../../images/react.svg");
+}
+
+.skills__item_backend .skills__logo {
+    background-image: url("../../images/server.svg");
+}
+
+.skills__item_data .skills__logo {
+    background-image: url("../../images/data.svg");
+}
+
+.skills__item_workspace .skills__logo {
+    background-image: url("../../images/workspace.svg");
+    background-size:  70%;
+}
+
+.skills__item_toolkit .skills__logo {
+    background-image: url("../../images/wrench.svg");
+    background-size:  55%;
+}
+
+.skills__logo:before {
+    position:      absolute;
+    top:           -4px;
+    left:          -4px;
+    bottom:        -4px;
+    right:         -4px;
+    content:       "";
+    border-radius: 50%;
+    border:        1px solid #DEB8A8;
+}
+
+.skills__title {
+    font-weight: bold;
+}
+
+.skills__desc {
+    animation-delay:    .2s;
+    animation-duration: .7s;
+}
+
+.skills__list li {
+    color:       #777;
+    line-height: 1.6em;
 }
 
 #timeline {
@@ -247,7 +446,7 @@ Main components
     }
 
     .timeline__image.timeline__image_company_freelance {
-        background-size:     36px;
+        background-size: 36px;
     }
 
     .cssanimations .m_visibility_hidden {
@@ -451,4 +650,36 @@ Main components
     100% {
         transform: translateX(0);
     }
+}
+
+.education-image {
+    background:      url(../../images/bauman.jpg) center center no-repeat fixed #333;
+    background-size: cover;
+    filter:          sepia(40%);
+}
+
+.education-image__title {
+    color:          #fff;
+    text-align:     center;
+    text-transform: uppercase;
+    font-size:      40px;
+    font-size:      2.5em;
+    font-weight:    100;
+    letter-spacing: .3em;
+    padding:        2em 0;
+}
+
+@media only screen and (min-width: 1170px) {
+    .education-image__title {
+        font-size: 48px;
+        font-size: 3em;
+    }
+}
+
+.contacts {
+    position:        relative;
+    min-height:      400px;
+    background:      url(../../images/contacts.jpg) center center no-repeat fixed #333;
+    background-size: cover;
+    filter:          sepia(40%);
 }
