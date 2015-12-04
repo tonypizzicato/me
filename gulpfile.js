@@ -39,6 +39,11 @@ gulp.task('copy:fonts', function () {
         .pipe(copy('dist/styles', {prefix: 1}));
 });
 
+gulp.task('copy:images', function () {
+    return gulp.src(['images/*.*'])
+        .pipe(copy('dist/images', {prefix: 1}));
+});
+
 
 gulp.task("js", function () {
     return browserify({entries: './src/js/app.js', debug: true})
@@ -60,8 +65,8 @@ gulp.task('usemin', function () {
 
     return gulp.src('./*.html')
         .pipe(usemin(conf))
-        .pipe(connect.reload())
-        .pipe(gulp.dest('dist/'));
+        .pipe(gulp.dest('dist/'))
+        .pipe(connect.reload());
 });
 
 
@@ -69,4 +74,4 @@ gulp.task('watch', function () {
     gulp.watch(['./*.html', 'src/css/*'], ['clean:css', 'usemin']);
 });
 
-gulp.task('default', seq('clean', ['copy:favicon', 'copy:fonts'], 'js', 'usemin', 'connect', 'watch'));
+gulp.task('default', seq('clean', ['copy:favicon', 'copy:fonts', 'copy:images'], 'js', 'usemin', 'connect', 'watch'));

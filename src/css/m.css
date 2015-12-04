@@ -34,6 +34,10 @@
     text-align: right;
 }
 
+.m_font-weight_b {
+    font-weight: bold;
+}
+
 .m_row {
     width:     100%;
     max-width: 1170px;
@@ -201,6 +205,10 @@
 
 .m_pb_50 {
     padding-bottom: 50px;
+}
+
+.m_mb_0 {
+    margin-bottom: 0px;
 }
 
 .m_mb_30 {

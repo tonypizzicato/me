@@ -328,31 +328,34 @@ Main components
     line-height: 1.6em;
 }
 
-#timeline {
+#about, #about .page-title__icon,
+#timeline, #timeline .page-title__icon {
+    background: #f3f3f3;
+}
+
+.timeline {
     position:      relative;
     padding:       2em 0;
-    margin-top:    2em;
     margin-bottom: 2em;
 }
 
-#timeline::before {
+.timeline::before {
     /* this is the vertical line */
     content:    '';
     position:   absolute;
     top:        0;
     left:       18px;
     height:     100%;
-    width:      4px;
-    background: #d7e4ed;
+    width:      3px;
+    background: #fff;
 }
 
 @media only screen and (min-width: 1170px) {
-    #timeline {
-        margin-top:    3em;
+    .timeline {
         margin-bottom: 3em;
     }
 
-    #timeline::before {
+    .timeline::before {
         left:        50%;
         margin-left: -2px;
     }
@@ -488,7 +491,9 @@ Main components
     background:    #ffffff;
     border-radius: 0.25em;
     padding:       1em;
-    box-shadow:    0 3px 0 #d7e4ed;
+    box-shadow:    0 3px 0 #F1DECC;
+    padding:       .8em 1.6em;
+    text-align:    right;
 }
 
 .timeline__content::after {
@@ -499,7 +504,8 @@ Main components
 
 .timeline__content h2,
 .timeline__content h3 {
-    color: #303e49;
+    color:       #303e49;
+    line-height: 2rem;
 }
 
 .timeline__content p, .timeline__content .cd-read-more, .timeline__content .cd-date {
@@ -508,7 +514,8 @@ Main components
 }
 
 .timeline__content .cd-read-more, .timeline__content .cd-date {
-    display: inline-block;
+    display:    inline-block;
+    text-align: left;
 }
 
 .timeline__content p {
@@ -570,7 +577,7 @@ Main components
 @media only screen and (min-width: 1170px) {
     .timeline__content {
         margin-left: 0;
-        padding:     1.6em;
+        padding:     .7em 1.6em;
         width:       45%;
     }
 
@@ -595,7 +602,8 @@ Main components
     }
 
     .timeline__block:nth-child(even) .timeline__content {
-        float: right;
+        float:      right;
+        text-align: left;
     }
 
     .timeline__block:nth-child(even) .timeline__content::before {
@@ -636,11 +644,11 @@ Main components
 @keyframes cd-bounce-2 {
     0% {
         opacity:   0;
-        transform: translateX(-100px);
+        transform: translateX(-80px);
     }
     60% {
         opacity:   1;
-        transform: translateX(20px);
+        transform: translateX(6px);
     }
     100% {
         transform: translateX(0);
@@ -650,15 +658,26 @@ Main components
 @keyframes cd-bounce-2-inverse {
     0% {
         opacity:   0;
-        transform: translateX(100px);
+        transform: translateX(80px);
     }
     60% {
         opacity:   1;
-        transform: translateX(-20px);
+        transform: translateX(-6px);
     }
     100% {
         transform: translateX(0);
     }
+}
+
+.experience__skills {
+    line-height:    1.2em;
+    font-size:      14px;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.experience__skills li {
+    margin: 1em 0;
 }
 
 .education-image {
@@ -686,9 +705,14 @@ Main components
 }
 
 .contacts {
-    position:        relative;
-    min-height:      400px;
+    height:          400px;
     background:      url(../../images/contacts.jpg) center center no-repeat fixed #333;
     background-size: cover;
-    filter:          sepia(40%);
+}
+
+.overlay {
+    position:   absolute;
+    height:     100%;
+    width:      100%;
+    background: rgba(20, 20, 20, .3);
 }
